@@ -3,8 +3,8 @@ const config = {
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
   },
-  testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
-  setupFilesAfterEnv: ['<rootDir>/src/__test__/config/importJestDOM.ts'],
+  testRegex: '(/__tests__/.*|(\\.|/)(test))\\.[tj]sx?$',
+  setupFilesAfterEnv: ['<rootDir>/jest-setup.ts'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   testEnvironment: 'jsdom',
 };

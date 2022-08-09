@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "ESNext",
+    "baseUrl": ".",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": false,
@@ -14,8 +15,19 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "paths": {
+      "@/*": ["src/*"],
+      "assets/*": ["src/assets/*"]
+    }
   },
-  "include": ["src"],
+  "include": [
+    "src",
+    "vite.config.ts",
+    "playwright.config.ts",
+    "src",
+    "e2e/*.ts",
+    "e2e/*.spec.ts"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

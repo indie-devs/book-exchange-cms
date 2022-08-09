@@ -4,28 +4,48 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "prepare": "npx gitkit setup",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "lint": "eslint ./src --ext .ts --ext .js --ext .tsx --color",
+    "format": "eslint ./src --ext .ts --ext .js --ext .tsx --color --fix",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "test:e2e": "playwright test",
+    "test:e2e:report": "playwright show-report"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@monostack/formatter": "^1.0.0",
+    "@monostack/gitkit": "^1.6.3",
+    "@playwright/test": "^1.27.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^14.4.3",
     "@types/jest": "^28.1.6",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^2.0.0",
+    "eslint": "^8.25.0",
     "jest": "^28.1.3",
     "jest-environment-jsdom": "^28.1.3",
+    "playwright": "^1.27.1",
+    "prettier": "^2.7.1",
+    "pretty-quick": "^3.1.3",
+    "stylelint": "^14.13.0",
     "ts-jest": "^28.0.7",
     "ts-node": "^10.9.1",
     "typescript": "^4.6.4",
-    "vite": "^3.0.0"
+    "vite": "^3.0.0",
+    "vite-tsconfig-paths": "^3.5.1"
+  },
+  "gitkit": {
+    "hooks": {
+      "pre-commit": "npx pretty-quick --staged && yarn lint"
+    }
   }
 }
